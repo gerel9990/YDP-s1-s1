@@ -203,22 +203,25 @@ function calculateResult(){
 function drawGraph(internal, external) {
   const canvas = document.getElementById("resultChart");
   canvas.style.display = "block";
+  
 
   const isMobile = window.innerWidth < 600;
-  canvas.width = isMobile ? window.innerWidth - 32 : 560;
-  canvas.height = isMobile ? 420 : 460;
+  const qOffset = isMobile ? 10 : 0;
+
+  canvas.width = isMobile ? window.innerWidth - 24 : 560;
+  canvas.height = isMobile ? canvas.width : 460;
 
   const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const padding = 70;
+  const padding = isMobile ? 50 : 70;
   const w = canvas.width - padding * 2;
   const h = canvas.height - padding * 2;
 
   const midX = padding + w / 2;
   const midY = padding + h / 2;
 
-  ctx.font = isMobile ? "13px Segoe UI" : "15px Segoe UI";
+  ctx.font = isMobile ? "12px Segoe UI" : "15px Segoe UI";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 
@@ -280,6 +283,7 @@ ctx.restore(); // өмнөх style-руу буцаана
   ctx.fillText("Өндөр", padding + w, padding + h + 30);
 
   // Axis titles
+  if (!isMobile) {
   ctx.save();
   ctx.translate(padding - 50, padding + h / 2);
   ctx.rotate(-Math.PI / 2);
@@ -291,50 +295,52 @@ ctx.restore(); // өмнөх style-руу буцаана
     padding + w / 2,
     padding + h + 55
   );
+}
+
 
 /* ===== Quadrant texts ===== */
-ctx.font = "15px Segoe UI"; // bold арилгасан
+ctx.font = isMobile ? "12px Segoe UI" : "15px Segoe UI"; // bold арилгасан
+
 
 // Top-left
 ctx.fillStyle = "#e81f76";
 ctx.fillText(
   "Интроспектор / Ажигч",
-  padding + w * 0.25,
-  padding + h * 0.25
+  padding + w * 0.25 - qOffset,
+  padding + h * 0.25 - qOffset
 );
 
 // Top-right
 ctx.fillStyle = "#ee7623";
 ctx.fillText(
   "Танин мэдсэн",
-  padding + w * 0.75,
-  padding + h * 0.25
+  padding + w * 0.75 - qOffset,
+  padding + h * 0.25 - qOffset
 );
 
 // Bottom-left
 ctx.fillStyle = "#00b140";
 ctx.fillText(
   "Хайгч",
-  padding + w * 0.25,
-  padding + h * 0.75
+  padding + w * 0.25 - qOffset,
+  padding + h * 0.75 - qOffset
 );
 
 // Bottom-right
 ctx.fillStyle = "#0099a8";
 ctx.fillText(
   "Бусдын аяыг харагч",
-  padding + w * 0.75,
-  padding + h * 0.75 - 10
+  padding + w * 0.75 - qOffset,
+  padding + h * 0.75 - 10 - qOffset
 );
 
-ctx.font = "12px Segoe UI";
+ctx.font = isMobile ? "11px Segoe UI" : "13px Segoe UI";
 ctx.fillText(
   "(People pleaser)",
-  padding + w * 0.75,
-  padding + h * 0.75 + 12
+  padding + w * 0.75 - qOffset,
+  padding + h * 0.75 + 12 - qOffset
 );
 
-// Дараагийн зүйлд нөлөөлөхгүйн тулд reset
 ctx.fillStyle = "#000";
 
   /* ===== Score point ===== */
@@ -343,18 +349,20 @@ ctx.fillStyle = "#000";
 
   // Glow
   ctx.beginPath();
-  ctx.arc(x, y, 14, 0, Math.PI * 2);
+  ctx.arc(x, y, isMobile ? 10 : 14, 0, Math.PI * 2);
+
   ctx.fillStyle = "rgba(112,38,239,0.25)";
   ctx.fill();
 
   // Dot
   ctx.beginPath();
-  ctx.arc(x, y, 7, 0, Math.PI * 2);
+  ctx.arc(x, y, isMobile ? 5 : 7, 0, Math.PI * 2);
   ctx.fillStyle = "#7026EF";
   ctx.fill();
 
   ctx.font = "bold 14px Segoe UI";
-  ctx.fillText("Таны оноо", x, y - 20);
+  ctx.fillText(isMobile ? "Оноо" : "Таны оноо", x, y - 16);
+
 }
 
 
