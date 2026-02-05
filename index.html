@@ -206,7 +206,9 @@ function drawGraph(internal, external) {
   
 
   const isMobile = window.innerWidth < 600;
-  const qOffset = isMobile ? 28 : 0;
+  const qx = isMobile ? 32 : 0; // horizontal shift
+  const qy = isMobile ? 22 : 0; // vertical shift
+
 
   canvas.width = isMobile ? window.innerWidth - 24 : 560;
   canvas.height = isMobile ? canvas.width : 460;
@@ -306,32 +308,32 @@ ctx.font = isMobile ? "12px Segoe UI" : "15px Segoe UI"; // bold арилгас�
 ctx.fillStyle = "#e81f76";
 ctx.fillText(
   "Интроспектор / Ажигч",
-  padding + w * 0.25 - qOffset,
-  padding + h * 0.25 - qOffset
+  padding + w * 0.25 - qx,
+  padding + h * 0.25 + qy
 );
 
 // Top-right
 ctx.fillStyle = "#ee7623";
 ctx.fillText(
   "Танин мэдсэн",
-  padding + w * 0.75 + qOffset,
-  padding + h * 0.25 - qOffset
+  padding + w * 0.75 + qx,
+  padding + h * 0.25 + qy
 );
 
 // Bottom-left
 ctx.fillStyle = "#00b140";
 ctx.fillText(
   "Хайгч",
-  padding + w * 0.25 - qOffset,
-  padding + h * 0.75 + qOffset
+  padding + w * 0.25 - qx,
+  padding + h * 0.75 + qy
 );
 
 // Bottom-right
 ctx.fillStyle = "#0099a8";
 ctx.fillText(
   "Бусдын аяыг харагч",
-  padding + w * 0.75 + qOffset,
-  padding + h * 0.75 + qOffset - 6
+  padding + w * 0.75 + qx,
+  padding + h * 0.75 + qy - 6
 );
 
 ctx.fillStyle = "#000";
