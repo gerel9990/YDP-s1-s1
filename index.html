@@ -206,7 +206,7 @@ function drawGraph(internal, external) {
   
 
   const isMobile = window.innerWidth < 600;
-  const qOffset = isMobile ? 10 : 0;
+  const qOffset = isMobile ? 28 : 0;
 
   canvas.width = isMobile ? window.innerWidth - 24 : 560;
   canvas.height = isMobile ? canvas.width : 460;
@@ -314,7 +314,7 @@ ctx.fillText(
 ctx.fillStyle = "#ee7623";
 ctx.fillText(
   "Танин мэдсэн",
-  padding + w * 0.75 - qOffset,
+  padding + w * 0.75 + qOffset,
   padding + h * 0.25 - qOffset
 );
 
@@ -323,22 +323,15 @@ ctx.fillStyle = "#00b140";
 ctx.fillText(
   "Хайгч",
   padding + w * 0.25 - qOffset,
-  padding + h * 0.75 - qOffset
+  padding + h * 0.75 + qOffset
 );
 
 // Bottom-right
 ctx.fillStyle = "#0099a8";
 ctx.fillText(
   "Бусдын аяыг харагч",
-  padding + w * 0.75 - qOffset,
-  padding + h * 0.75 - 10 - qOffset
-);
-
-ctx.font = isMobile ? "11px Segoe UI" : "13px Segoe UI";
-ctx.fillText(
-  "(People pleaser)",
-  padding + w * 0.75 - qOffset,
-  padding + h * 0.75 + 12 - qOffset
+  padding + w * 0.75 + qOffset,
+  padding + h * 0.75 + qOffset - 6
 );
 
 ctx.fillStyle = "#000";
