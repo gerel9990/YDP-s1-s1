@@ -243,11 +243,6 @@ function drawGraph(internal, external) {
   ctx.lineTo(padding + w, padding + h);
   ctx.stroke();
 
-
-
-
-
-
 /* ===== Middle dashed lines ===== */
 ctx.save(); // state хадгална
 
@@ -268,12 +263,6 @@ ctx.lineTo(padding + w, midY);
 ctx.stroke();
 
 ctx.restore(); // өмнөх style-руу буцаана
-
-
-
-
-
-
 
   /* ===== Axis labels ===== */
   ctx.fillStyle = "#000";
@@ -308,32 +297,32 @@ ctx.font = isMobile ? "12px Segoe UI" : "15px Segoe UI"; // bold арилгас�
 ctx.fillStyle = "#e81f76";
 ctx.fillText(
   "Интроспектор / Ажигч",
-  padding + w * 0.25 - qx,
-  padding + h * 0.25 + qy
+  padding + w * 0.25 ,
+  padding + h * 0.25
 );
 
 // Top-right
 ctx.fillStyle = "#ee7623";
 ctx.fillText(
   "Танин мэдсэн",
-  padding + w * 0.75 + qx,
-  padding + h * 0.25 + qy
+  padding + w * 0.75,
+  padding + h * 0.25
 );
 
 // Bottom-left
 ctx.fillStyle = "#00b140";
 ctx.fillText(
   "Хайгч",
-  padding + w * 0.25 - qx,
-  padding + h * 0.75 + qy
+  padding + w * 0.25,
+  padding + h * 0.75
 );
 
 // Bottom-right
 ctx.fillStyle = "#0099a8";
 ctx.fillText(
   "Бусдын аяыг харагч",
-  padding + w * 0.75 + qx,
-  padding + h * 0.75 + qy - 6
+  padding + w * 0.75,
+  padding + h * 0.75
 );
 
 ctx.fillStyle = "#000";
@@ -366,3 +355,4 @@ ctx.fillStyle = "#000";
 
 </body>
 </html>
+
