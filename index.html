@@ -290,40 +290,32 @@ ctx.restore(); // өмнөх style-руу буцаана
 
 
 /* ===== Quadrant texts ===== */
-ctx.font = isMobile ? "12px Segoe UI" : "15px Segoe UI"; // bold арилгасан
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.font = isMobile ? "13px Segoe UI" : "15px Segoe UI";
+
+const cx1 = padding + w * 0.25;
+const cx2 = padding + w * 0.75;
+const cy1 = padding + h * 0.25;
+const cy2 = padding + h * 0.75;
 
 
 // Top-left
 ctx.fillStyle = "#e81f76";
-ctx.fillText(
-  "Интроспектор / Ажигч",
-  padding + w * 0.25 ,
-  padding + h * 0.25
-);
+ctx.fillText("Интроспектор / Ажигч", cx1, cy1);
 
 // Top-right
 ctx.fillStyle = "#ee7623";
-ctx.fillText(
-  "Танин мэдсэн",
-  padding + w * 0.75,
-  padding + h * 0.25
-);
+ctx.fillText("Танин мэдсэн", cx2, cy1);
 
 // Bottom-left
 ctx.fillStyle = "#00b140";
-ctx.fillText(
-  "Хайгч",
-  padding + w * 0.25,
-  padding + h * 0.75
-);
+ctx.fillText("Хайгч", cx1, cy2);
 
 // Bottom-right
 ctx.fillStyle = "#0099a8";
-ctx.fillText(
-  "Бусдын аяыг харагч",
-  padding + w * 0.75,
-  padding + h * 0.75
-);
+ctx.fillText("Бусдын аяыг харагч", cx2, cy2);
+
 
 ctx.fillStyle = "#000";
 
@@ -355,4 +347,5 @@ ctx.fillStyle = "#000";
 
 </body>
 </html>
+
 
